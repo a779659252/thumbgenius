@@ -1,4 +1,4 @@
-"""import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { TextLayer } from '../types';
 
 interface DraggableTextProps {
@@ -193,4 +193,3 @@ const DraggableText: React.FC<DraggableTextProps> = ({
 };
 
 export default DraggableText;
-""
