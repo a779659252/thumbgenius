@@ -58,27 +58,31 @@ const DraggableText: React.FC<DraggableTextProps> = ({
         });
       } else if (isResizing.current) {
         const handle = isResizing.current;
-        let newWidth = initialLayerState.current.width ?? 0;
-        let newHeight = initialLayerState.current.height ?? 0;
-        let newX = initialLayerState.current.x ?? 0;
-        let newY = initialLayerState.current.y ?? 0;
+        let { x: newX, y: newY, width: newWidth, height: newHeight } = {
+            x: initialLayerState.current.x ?? 0,
+            y: initialLayerState.current.y ?? 0,
+            width: initialLayerState.current.width ?? 0,
+            height: initialLayerState.current.height ?? 0
+        };
 
         if (handle.includes('right')) {
             newWidth += deltaX;
+            newX += deltaX / 2;
         } else if (handle.includes('left')) {
             newWidth -= deltaX;
-            newX += deltaX;
+            newX += deltaX / 2;
         }
 
         if (handle.includes('bottom')) {
             newHeight += deltaY;
+            newY += deltaY / 2;
         } else if (handle.includes('top')) {
             newHeight -= deltaY;
-            newY += deltaY;
+            newY += deltaY / 2;
         }
         
         onChange(layer.id, {
-            width: Math.max(newWidth, 20), // Minimum size
+            width: Math.max(newWidth, 20),
             height: Math.max(newHeight, 20),
             x: newX,
             y: newY
