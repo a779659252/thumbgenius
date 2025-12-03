@@ -1,0 +1,5 @@
+{
+  "name": "ThumbGenius",
+  "description": "A smart video thumbnail creator that allows you to design reusable templates and update text instantly for new videos.",
+  "requestFramePermissions": []
+}
